@@ -3,7 +3,7 @@ const fs = require("fs");
 require("dotenv").config();
 
 class AuthController {
-  generateToken(req, res) {
+  async generateToken(req, res) {
     const obrigatoryFields = ["client_id", "client_secret"];
     const missingFields = [];
     obrigatoryFields.forEach((field) => {
@@ -21,14 +21,12 @@ class AuthController {
     if (req.body.client_id == "synvia" && req.body.client_secret == "project") {
       const privateKey = process.env.PRIVATE_KEY;
       const token = jwt.sign({ sub: req.body.client_id, algorithm: "RS256", issuer:"synvia_backend", subject:"Token authenticator endpoints"}, privateKey, { algorithm: 'RS256', expiresIn: 60 * 60});
-
       return res.status(200).send({
         tokenType: "bearer",
         expiresIn: 3600,
         token,
         message: "Token gerado!",
       });
-
     } else {
       return res.send({ message: "As credenciais estão incorretas" });
     }
