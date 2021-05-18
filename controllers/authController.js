@@ -13,22 +13,22 @@ class AuthController {
     });
 
     if (missingFields.length > 0) {
-      return res.send({
+      return res.status(400).send({
         message: `Os seguintes campos estão faltando para a geração do token: ${missingFields}`,
       });
     }
 
-    // Alterar para buscar as credenciais dentro de um banco de dados ou em uma variável de ambiente
     if (req.body.client_id == "synvia" && req.body.client_secret == "project") {
-      // const privateKey = process.env.PRIVATE_KEY;
-      // const token = jwt.sign({ foo: 'bar' }, privateKey, { algorithm: 'RS256'});
+      const privateKey = process.env.PRIVATE_KEY;
+      const token = jwt.sign({ sub: req.body.client_id, algorithm: "RS256", issuer:"synvia_backend", subject:"Token authenticator endpoints"}, privateKey, { algorithm: 'RS256', expiresIn: 60 * 60});
 
-      const token = jwt.sign({ client_id: req.body.client_id }, "shhhhh");
-
-      return res.send({
-        generatedToken: token,
+      return res.status(200).send({
+        tokenType: "bearer",
+        expiresIn: 3600,
+        token: token,
         message: "Token gerado!",
       });
+
     } else {
       return res.send({ message: "As credenciais estão incorretas" });
     }

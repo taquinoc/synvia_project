@@ -13,6 +13,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 const authRouter = require('./routes/auth');
+const sampleRouter = require('./routes/sample');
+
 app.use('/auth', authRouter);
+app.use('/sample', sampleRouter);
+
 
 module.exports = app;
