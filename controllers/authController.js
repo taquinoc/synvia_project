@@ -25,7 +25,7 @@ class AuthController {
       return res.status(200).send({
         tokenType: "bearer",
         expiresIn: 3600,
-        token: token,
+        token,
         message: "Token gerado!",
       });
 
