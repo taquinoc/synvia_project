@@ -57,7 +57,7 @@ Response:
 Request body:
 ```json
 {
-   "codigo_amostra": "80",
+   	"codigo_amostra": "80",
 	"Cocaína": 0.678,
 	"Anfetamina": 1.1,
 	"Metanfetamina": 1.1,
@@ -151,7 +151,7 @@ Response:
 	"Norcocaína": 1,
 	"isPositive": true,
 	"__v": 0
-	},
+	}
 ]
 ```
 
