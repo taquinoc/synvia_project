@@ -24,9 +24,10 @@ Para acessar a API e testá-la diretamente no Postman você pode baixar a collec
 *Base Url:* https://synviabackend.herokuapp.com
 
 **Geração de token de autenticação**:
-Endpoint: ***auth/token***
-ex: https://synviabackend.herokuapp.com/auth/token
-Método: **POST**
+
+ - Endpoint: ***auth/token***
+ - ex: https://synviabackend.herokuapp.com/auth/token
+ - Método: **POST**
 
 Request body:
 
@@ -47,10 +48,11 @@ Response:
 }
 ```
 **Análise de amostras:**
-Endpoint: ***sample/check***
-ex: https://synviabackend.herokuapp.com/sample/check
-Método: **POST**
-Headers: Authorization Bearer
+
+ - Endpoint: ***sample/check***
+ - ex: https://synviabackend.herokuapp.com/sample/check
+ - Método: **POST**
+ - Headers: Authorization Bearer
 
 Request body:
 ```json
@@ -89,10 +91,11 @@ Response:
 }
 ```
 **Listagem de amostras:**
-Endpoint: ***sample/list***
-ex: https://synviabackend.herokuapp.com/sample/list
-Método: **GET**
-Headers: Authorization Bearer
+
+ - Endpoint: ***sample/list***
+ - ex: https://synviabackend.herokuapp.com/sample/list
+ - Método: **GET**
+ - Headers: Authorization Bearer
 
 Response:
 ```json
