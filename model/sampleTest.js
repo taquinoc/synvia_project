@@ -6,8 +6,9 @@ mongoose.connect(process.env.MONGO_INSTANCE, {
   useUnifiedTopology: true,
 });
 
-const passingScoreSchema = new mongoose.Schema(
+const sampleTestSchema = new mongoose.Schema(
   {
+    codigo_amostra: { type: String, minLength: 1, maxLength: 18 },
     Cocaína: Number,
     Anfetamina: Number,
     Metanfetamina: Number,
@@ -17,9 +18,14 @@ const passingScoreSchema = new mongoose.Schema(
     Morfina: Number,
     Codeína: Number,
     Heroína: Number,
+    Benzoilecgonina: Number,
+    Cocaetileno: Number,
+    Norcocaína: Number,
+    isPositive: Boolean,
+    positiveSubstances: Array
   },
-  { collection: "PassingScore" },
+  { collection: "SampleTest" },
   { versionKey: false }
 );
 
-module.exports = mongoose.model("PassingScore", passingScoreSchema);
+module.exports = mongoose.model("SampleTest", sampleTestSchema);
